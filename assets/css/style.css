@@ -1,3 +1,75 @@
 ul.list-group {
   min-height: 130px;
 }
+
+body {
+  font-family: "Opens Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Staatliches", sans-serif;
+}
+
+/* Styles for Drag & Drop Feature */
+
+/* Insert $(this).addClass("dropover") in activate method of .sortable */
+/* To remove, insert $(this).removeClass("dropover"); in deactivate method of .sortable */
+.dropover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* To activate, insert $(event.target).addClass("dropover-active"); in over method of .sortable */
+/* to deactivate, insert $(event.target).removeClass("dropover-active"); in out method of .sortable */
+.dropover-active {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+/* Styles End for Drag & D */
+
+/* Styles for Dragging to Trash Div Start  */
+/* Starting Point of animation (hidden below the screen) */
+.bottom-trash {
+  opacity: 0;
+  color: #f1f1f1;
+  font-size: 2.3em;
+  font-family: "Staatliches", sans-serif;
+  transform: translateY(150px);
+  transition: all .5s ease-in-out;
+  background-color: rgba(234, 0, 39, 0.7);
+}
+
+/* Trash Styles When Being Dragged */
+/* Insert $(".bottom-trash").addClass("bottom-trash-drag"); in .sortable > .activate */
+/* To Deactivate, $(".bottom-trash").removeClass("bottom-trash-drag"); in .sortable > .deactivate */
+.bottom-trash-drag {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Trash Styles When Task is Hovering Over Trash Div */
+/* Activate: $(".bottom-trash").addClass("bottom-trash-active"); in .droppable > .over */
+/* Deactivate: (".bottom-trash").removeClass("bottom-trash-active"); in .droppable > .drop & .out */
+.bottom-trash-active {
+  background-color: rgba(234, 0, 39, 1);
+}
+/* Trash Styles End */
+
+/* Custom Buttons Start */
+.btn-add, .btn-save {
+  background-color: #FA8BFF;
+  background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+  transition: all .5s ease-out;
+  background-size: 1px 100px;
+  background-position: 0 -10px;
+}
+
+.btn-close, .btn-delete {
+  background-color: #EA0028;
+  background-image: linear-gradient(180deg, #FF9A8B 0%, #EA0028 100%);
+  transition: all .5s ease-out;
+  background-size: 1px 100px;
+  background-position: 0 -10px;
+}
+
+.btn-add:hover, .btn-save:hover, .btn-close:hover, .btn-delete:hover {
+  background-position: 1px -50px;
+}
